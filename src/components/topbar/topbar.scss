@@ -10,6 +10,10 @@
   z-index: 3;
   transition: all 1s ease;
 
+  .company-logo {
+    max-height: 50px;
+  }
+
   .wrapper {
     padding: 10px 30px;
     display: flex;
@@ -46,6 +50,10 @@
           font-size: 15px;
           font-weight: 500;
         }
+
+        a {
+          color: black;
+        }
       }
     }
 
@@ -72,6 +80,10 @@
   &.active {
     background-color: $mainColor;
     color: white;
+
+    a {
+      color: white !important;
+    }
 
     .hamburger {
       span {

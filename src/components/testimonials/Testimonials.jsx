@@ -4,38 +4,35 @@ export default function Testimonials() {
   const data = [
     {
       id: 1,
-      name: "Nikish Mahajan",
+      name: "Nikish",
       title: "Student",
-      img:
-        "https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      img: "https://img.icons8.com/emoji/48/000000/man.png",
       icon: "assets/twitter.png",
       desc:
-        "I read a lot about Healthy Diet and its benifits and got in touch with Sapna. I still thinks that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without Upsetting my tastebuds."
+        "I read a lot about Healthy Diet and its benifits and got in touch with Sapna. I still thinks that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without Upsetting my tastebuds"
     },
     {
       id: 2,
-      name: "Nikish Mahajan",
-      title: "Student",
-      img:
-        "https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      name: "Kanika",
+      title: "Housewife",
+      img: "https://img.icons8.com/emoji/48/000000/woman-head-emoji.png",
       icon: "assets/twitter.png",
       desc:
-        "I read a lot about Healthy Diet and its benifits and got in touch with Sapna. I still thinks that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without Upsetting my tastebuds."
+        "Trust me after taking diet I feel energised whole day long. The results are amazing even though I enjoyed cheat meals"
     },
     {
       id: 3,
-      name: "Nikish Mahajan",
-      title: "Student",
-      img:
-        "https://images.pexels.com/photos/1680172/pexels-photo-1680172.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      name: "Nitika",
+      title: "Entrepreneur",
+      img: "https://img.icons8.com/emoji/48/000000/woman-head-emoji.png",
       icon: "assets/twitter.png",
       desc:
-        "I read a lot about Healthy Diet and its benifits and got in touch with Sapna. I still thinks that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without Upsetting my tastebuds."
+        "Very easy Diet. Everything is readily available in the kitchen. I can rely on diet and still enjoy my cheat days "
     }
   ];
   return (
     <div className="testimonials" id="testimonials">
-      <h1>Testimonials</h1>
+      <h1 className="testimonial-title">Testimonials</h1>
       <div className="container">
         {data.map((d) => (
           <div className={d.featured ? "card featured" : "card"}>

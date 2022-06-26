@@ -12,9 +12,12 @@
 
 
   h1 {
+    margin: 40px;
     font-size: 50px;
+    font-family: 'pacifico';
 
-    @include mobile{
+    @include mobile {
+      margin: 20px;
       font-size: 20px;
     }
   }
@@ -40,6 +43,8 @@
       flex-direction: column;
       justify-content: space-around;
       padding: 20px;
+      margin-left: 20px;
+      margin-right: 40px;
       transition: all 1s ease;
 
       @include mobile{

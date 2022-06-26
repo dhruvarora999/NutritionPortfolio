@@ -1,65 +1,38 @@
 import { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
-import {
-  featuredPortfolio,
-  webPortfolio,
-  mobilePortfolio,
-  designPortfolio,
-  contentPortfolio,
-} from "../../data";
+import { aboutMe, offerings } from "../../data";
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState("featured");
+  const [selected, setSelected] = useState("about");
   const [data, setData] = useState([]);
   const list = [
     {
-      id: "featured",
-      title: "Featured",
+      id: "about",
+      title: "About Me"
     },
     {
-      id: "web",
-      title: "Web App",
-    },
-    {
-      id: "mobile",
-      title: "Mobile App",
-    },
-    {
-      id: "design",
-      title: "Design",
-    },
-    {
-      id: "content",
-      title: "Content",
-    },
+      id: "offerings",
+      title: "Our services"
+    }
   ];
 
   useEffect(() => {
     switch (selected) {
-      case "featured":
-        setData(featuredPortfolio);
+      case "about":
+        setData(aboutMe);
         break;
-      case "web":
-        setData(webPortfolio);
-        break;
-      case "mobile":
-        setData(mobilePortfolio);
-        break;
-      case "design":
-        setData(designPortfolio);
-        break;
-      case "content":
-        setData(contentPortfolio);
+      case "offerings":
+        setData(offerings);
         break;
       default:
-        setData(featuredPortfolio);
+        setData(aboutMe);
     }
   }, [selected]);
 
   return (
     <div className="portfolio" id="portfolio">
-      <h1>Portfolio</h1>
+      <h1 className="portfolio-title">Portfolio</h1>
       <ul>
         {list.map((item) => (
           <PortfolioList
@@ -70,16 +43,21 @@ export default function Portfolio() {
           />
         ))}
       </ul>
-      <div className="container">
-        {data.map((d) => (
-          <div className="item">
-            <img
-              src={d.img}
-              alt=""
-            />
-            <h3>{d.title}</h3>
-          </div>
-        ))}
+      <div className="potfolio-container">
+        {data.map((d) =>
+          d.contentOnly ? (
+            <div className="content-data-item">
+              <div className="content-title">{d.title}</div>
+              <div className="content-subtext">{d.subtext}</div>
+              <img className="content-img" src={d.img} alt="" />
+            </div>
+          ) : (
+            <div className="item">
+              <img src={d.img} alt="" />
+              <h3>{d.title}</h3>
+            </div>
+          )
+        )}
       </div>
     </div>
   );

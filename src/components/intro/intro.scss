@@ -28,10 +28,12 @@
       }
 
       img {
-        height: 90%;
+        height: 120%;
 
         @include mobile{
-          height: 50%;
+          position: relative;
+          top: -50px;
+          height: 60%;
         }
       }
     }
