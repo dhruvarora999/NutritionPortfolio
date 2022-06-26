@@ -24,6 +24,20 @@ export default function Works() {
       title: "Certified",
       desc: "We're certified by Chamber of Industry & Trade",
       img: "assets/certificate.jpeg"
+    },
+    {
+      id: "4",
+      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
+      title: "Rejuvenating with Indian culture",
+      desc: "ANSH - A network of Sensitive Humans",
+      img: "assets/ansh.jpeg"
+    },
+    {
+      id: "5",
+      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
+      title: "Contibutions to WICCI",
+      desc: "We're certified by WICCI",
+      img: "assets/wicci.jpeg"
     }
   ];
 

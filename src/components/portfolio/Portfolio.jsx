@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
-import { aboutMe, offerings } from "../../data";
+import { aboutMe, offerings, sucessStories } from "../../data";
 
 export default function Portfolio() {
   const [selected, setSelected] = useState("about");
@@ -14,6 +14,10 @@ export default function Portfolio() {
     {
       id: "offerings",
       title: "Our services"
+    },
+    {
+      id: "sucessStories",
+      title: "Sucess Stories"
     }
   ];
 
@@ -24,6 +28,9 @@ export default function Portfolio() {
         break;
       case "offerings":
         setData(offerings);
+        break;
+      case "sucessStories":
+        setData(sucessStories);
         break;
       default:
         setData(aboutMe);
@@ -49,7 +56,10 @@ export default function Portfolio() {
             <div className="content-data-item">
               <div className="content-title">{d.title}</div>
               <div className="content-subtext">{d.subtext}</div>
-              <img className="content-img" src={d.img} alt="" />
+              <div className="img-container">
+                <img className="content-img" src={d.img} alt="" />
+                <img className="content-img" src={d.img2} alt="" />
+              </div>
             </div>
           ) : (
             <div className="item">
