@@ -38,6 +38,13 @@ export default function Works() {
       title: "Contibutions to WICCI",
       desc: "We're certified by WICCI",
       img: "assets/wicci.jpeg"
+    },
+    {
+      id: "5",
+      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
+      title: "IIFA Awardee",
+      desc: "Celebrity Brand award at IIFA",
+      img: "assets/iifa.jpeg"
     }
   ];
 

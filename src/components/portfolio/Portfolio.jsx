@@ -13,11 +13,11 @@ export default function Portfolio() {
     },
     {
       id: "offerings",
-      title: "Our services"
+      title: "Our Services"
     },
     {
       id: "sucessStories",
-      title: "Sucess Stories"
+      title: "Success Stories"
     }
   ];
 
