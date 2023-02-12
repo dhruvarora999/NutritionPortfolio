@@ -6,7 +6,8 @@ export const aboutMe = [
     subtext:
       "Director of  Fat To Slim at Gurgaon. We provide a Magical Diet where you don’t have to starve or eat a fancy diet. Our motto is Eat, Sleep, No Exercise and Loose. We believe that healthy eating is not about a stringent diet, starving, staying unrealistically thin, or depriving yourself of the foods you love. Dieting is all about enjoying food, feeling great, having more energy, and keeping yourself as healthy as possible – all of which can be achieved by gaining some nutritional knowledge & modifying it according to your daily life. This Franchise of Fat To Slim works under the guidance of Ms. Shikha, our Founder Director.",
     img: "/assets/about.jpeg",
-    img2: "assets/transform.jpeg"
+    img2: "assets/transform.jpeg",
+    img3: "assets/womenPreneur.jpeg"
   }
 ];
 
@@ -93,5 +94,20 @@ export const sucessStories = [
     id: 6,
     title: "Success story",
     img: "/assets/ss6.jpeg"
+  },
+  {
+    id: 7,
+    title: "Success story",
+    img: "/assets/awardChamber.JPG"
+  },
+  {
+    id: 8,
+    title: "Success story",
+    img: "/assets/chamberGroup.JPG"
+  },
+  {
+    id: 9,
+    title: "Success story",
+    img: "/assets/newsArticle.jpeg"
   }
 ];

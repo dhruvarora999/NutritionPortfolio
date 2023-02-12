@@ -59,6 +59,7 @@ export default function Portfolio() {
               <div className="img-container">
                 <img className="content-img" src={d.img} alt="" />
                 <img className="content-img" src={d.img2} alt="" />
+                <img className="content-img" src={d.img3} alt="" />
               </div>
             </div>
           ) : (
