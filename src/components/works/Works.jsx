@@ -45,6 +45,20 @@ export default function Works() {
       title: "IIFA Awardee",
       desc: "Celebrity Brand award at IIFA",
       img: "assets/iifa.jpeg"
+    },
+    {
+      id: "6",
+      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
+      title: "Chamber of trade & industry awardee",
+      desc: "Chamber of trade & industry awardee",
+      img: "assets/awardChamber.jpeg"
+    },
+    {
+      id: "7",
+      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
+      title: "Honoured with industry award",
+      desc: "Honoured with industry award",
+      img: "assets/chamberGroup.jpeg"
     }
   ];
 
