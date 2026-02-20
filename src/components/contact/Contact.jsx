@@ -38,17 +38,22 @@ export default function Contact() {
   ];
   return (
     <div className="contact" id="contact">
-      <div className="left">
-        <img src="assets/shake.svg" alt="" />
-      </div>
-      <div className="right">
-        <h2>Want to connect? Get in touch with me</h2>
-        <div className="channels">
-          {communicationChannel.map((channel) => (
-            <a href={channel.href} target="_blank">
-              <img src={channel.img}></img>
-            </a>
-          ))}
+      <div className="contact-content">
+        <div className="contact-visual">
+          <img src="/assets/shake.svg" alt="" aria-hidden="true" onError={(e) => { e.target.onerror = null; e.target.src = "https://img.icons8.com/color/96/handshake.png"; }} />
+        </div>
+        <div className="contact-actions">
+          <h2>Get in touch</h2>
+          <p className="contact-tagline">Want to connect? Reach out for consultations and diet plans.</p>
+          <div className="channels">
+            {communicationChannel.map((channel) => (
+              <a key={channel.id} href={channel.href} target="_blank" rel="noopener noreferrer" aria-label={channel.title} className="channel-link">
+                <img src={channel.img} alt="" />
+                <span>{channel.title}</span>
+              </a>
+            ))}
+          </div>
+          <a href="#intro" className="back-to-top">Back to top</a>
         </div>
       </div>
     </div>

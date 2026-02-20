@@ -1,36 +1,123 @@
 @import "../../global.scss";
 
 .contact {
-  background-color: white;
+  background: linear-gradient(135deg, #f8faf8 0%, #e8f5e9 100%);
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--section-padding);
+  min-height: 100%;
+}
+
+.contact-content {
+  width: 100%;
+  max-width: var(--content-max-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
 
   @include mobile {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+.contact-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+
+    @include mobile {
+      max-height: 180px;
+    }
+  }
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+  @include mobile {
+    align-items: center;
   }
 
-  .left {
-    flex: 1;
-    overflow: hidden;
+  h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+  }
+
+  .contact-tagline {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+    font-family: var(--font-body);
+    line-height: 1.5;
+  }
+
+  .channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    @include mobile {
+      justify-content: center;
+    }
+  }
+
+  .channel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid rgba(45, 90, 39, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
     img {
-      height: 100%;
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
     }
   }
-  .right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    .channels {
-      display: flex;
-      gap: 20px;
-    }
+  .back-to-top {
+    margin-top: 8px;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 16px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius);
+    transition: background-color 0.2s, color 0.2s;
 
-    h2 {
-      font-size: 30px;
-      font-family: 'pacifico';
+    &:hover {
+      background-color: var(--color-primary);
+      color: white;
     }
   }
 }

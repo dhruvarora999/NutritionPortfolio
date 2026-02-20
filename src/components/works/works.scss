@@ -1,152 +1,157 @@
 @import "../../global.scss";
 
 .works {
-  background-color: crimson;
+  background-color: var(--color-accent);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  padding: var(--section-padding);
+  gap: 24px;
 
   h1 {
-    position: relative;
-    top: -400px;
+    margin: 0;
     color: white;
-    z-index: 2;
-    font-family: 'pacifico';
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
   }
 
-  .arrow {
-    height: 50px;
-    position: absolute;
-    cursor: pointer;
-
-    @include mobile {
-      display: none;
-    }
-
-    &.left {
-      left: 100px;
-      transform: rotateY(180deg);
-    }
-
-    &.right {
-      right: 100px;
-    }
-  }
-
-  .slider {
-    height: 350px;
+  .works-carousel {
+    width: 100%;
+    max-width: 900px;
     display: flex;
-    position: absolute;
-    left: 0;
-    transition: all 1s ease-out;
+    align-items: center;
+    gap: 12px;
+    position: relative;
 
     @include mobile {
-      height: 100vh;
-      flex-direction: column;
-      justify-content: center;
+      gap: 8px;
+    }
+  }
+
+  .works-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
     }
 
-    .container {
-      width: 100vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    img {
+      height: 22px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
 
-      .item {
-        height: 100%;
-        background-color: white;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &.left img {
+      transform: rotate(180deg);
+    }
 
-        @include mobile {
-          width: 60%;
-          height: 150px;
-          margin: 15px 0;
-        }
+    @include mobile {
+      width: 36px;
+      height: 36px;
 
-        .left {
-          flex: 4;
-          height: 80%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .leftContainer {
-            width: 90%;
-            height: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            .data-title {
-              font-family: 'pacifico';
-            }
-
-            .data-desc {
-              font-family: 'Syne';
-              font-size: 16px;
-            }
-
-            .imgContainer {
-              width: 40px;
-              height: 40px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-
-              @include mobile {
-                width: 20px;
-                height: 20px;
-              }
-
-              img {
-                width: 40px;
-                height: 40px;
-
-                @include mobile {
-                  width: 20px;
-                  height: 20px;
-                }
-              }
-            }
-            h2 {
-              font-size: 20px;
-
-              @include mobile{
-                font-size: 13px;
-              }
-            }
-            p {
-              font-size: 13px;
-              @include mobile{
-                display: none;
-              }
-            }
-            span {
-              font-size: 12px;
-              font-weight: 600;
-              text-decoration: underline;
-              cursor: pointer;
-            }
-          }
-        }
-        .right {
-          flex: 8;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: right;
-          overflow: hidden;
-
-          .main-image {
-            height: 100%;
-            object-fit: contain;
-          }
-        }
+      img {
+        height: 18px;
       }
+    }
+  }
+
+  .works-cards {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    overflow: hidden;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include mobile {
+      gap: 12px;
+    }
+  }
+
+  .works-card {
+    flex: 1 1 160px;
+    max-width: 220px;
+    min-width: 140px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    @include mobile {
+      max-width: 100%;
+      min-width: 0;
+      padding: 16px;
+    }
+  }
+
+  .works-card-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  .works-card-title {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    line-height: 1.2;
+
+    @include mobile {
+      font-size: 0.85rem;
+    }
+  }
+
+  .works-card-desc {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: #555;
+    font-family: var(--font-body);
+
+    @include mobile {
+      font-size: 0.7rem;
     }
   }
 }

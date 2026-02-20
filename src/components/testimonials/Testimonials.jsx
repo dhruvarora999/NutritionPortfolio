@@ -1,52 +1,39 @@
 import "./testimonials.scss";
 
+const quoteTestimonials = [
+  { id: 1, name: "Deepika", title: "Client", desc: "This is how one looks when they lose 7 kgs in 2 months, without starving, with exercising to keep oneself fit and most importantly happy. Thanks Sapna." },
+  { id: 2, name: "Nikish", title: "Student", desc: "I read a lot about Healthy Diet and its benefits and got in touch with Sapna. I still think that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without upsetting my taste buds." },
+  { id: 3, name: "Kanika", title: "Housewife", desc: "Trust me after taking the diet I feel energised the whole day. The results are amazing even though I enjoyed cheat meals." },
+  { id: 4, name: "Nitika", title: "Entrepreneur", desc: "Very easy diet. Everything is readily available in the kitchen. I can rely on the diet and still enjoy my cheat days." }
+];
+
+const ICONS8_IMAGE = "https://img.icons8.com/color/96/camera--v1.png";
+const visualTestimonials = [
+  { id: "v1", src: "/assets/PHOTO-2026-02-20-18-07-07.jpg", caption: "Transformation – 2 months" },
+  { id: "v2", src: "/assets/PHOTO-2026-02-20-18-07-06.jpg", caption: "Client results" }
+];
+
 export default function Testimonials() {
-  const data = [
-    {
-      id: 1,
-      name: "Nikish",
-      title: "Student",
-      img: "https://img.icons8.com/emoji/48/000000/man.png",
-      icon: "assets/twitter.png",
-      desc:
-        "I read a lot about Healthy Diet and its benifits and got in touch with Sapna. I still thinks that was the best decision of my life. My lifestyle has taken a 180 degree turn and I'm enjoying it without Upsetting my tastebuds"
-    },
-    {
-      id: 2,
-      name: "Kanika",
-      title: "Housewife",
-      img: "https://img.icons8.com/emoji/48/000000/woman-head-emoji.png",
-      icon: "assets/twitter.png",
-      desc:
-        "Trust me after taking diet I feel energised whole day long. The results are amazing even though I enjoyed cheat meals"
-    },
-    {
-      id: 3,
-      name: "Nitika",
-      title: "Entrepreneur",
-      img: "https://img.icons8.com/emoji/48/000000/woman-head-emoji.png",
-      icon: "assets/twitter.png",
-      desc:
-        "Very easy Diet. Everything is readily available in the kitchen. I can rely on diet and still enjoy my cheat days "
-    }
-  ];
   return (
     <div className="testimonials" id="testimonials">
       <h1 className="testimonial-title">Testimonials</h1>
-      <div className="container">
-        {data.map((d) => (
-          <div className={d.featured ? "card featured" : "card"}>
-            <div className="top">
-              <img src="assets/right-arrow.png" className="left" alt="" />
-              <img className="user" src={d.img} alt="" />
-              <img className="right" src={d.icon} alt="" />
-            </div>
-            <div className="center">{d.desc}</div>
-            <div className="bottom">
-              <h3>{d.name}</h3>
-              <h4>{d.title}</h4>
-            </div>
-          </div>
+      <div className="testimonials-visual">
+        {visualTestimonials.map((t) => (
+          <figure key={t.id} className="testimonial-figure">
+            <img src={t.src} alt={t.caption} loading="lazy" onError={(e) => { e.target.onerror = null; e.target.src = ICONS8_IMAGE; }} />
+            <figcaption>{t.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div className="testimonials-grid">
+        {quoteTestimonials.map((d) => (
+          <article key={d.id} className="testimonial-card">
+            <blockquote className="testimonial-quote">{d.desc}</blockquote>
+            <footer className="testimonial-footer">
+              <span className="testimonial-name">{d.name}</span>
+              <span className="testimonial-role">{d.title}</span>
+            </footer>
+          </article>
         ))}
       </div>
     </div>

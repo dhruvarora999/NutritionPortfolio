@@ -1,111 +1,50 @@
 import { useState } from "react";
 import "./works.scss";
 
-export default function Works() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const data = [
-    {
-      id: "1",
-      icon: "https://img.icons8.com/color/48/000000/trophy.png",
-      title: "Miss Diva Dwarka",
-      desc: "Won the competition held for Miss Diva",
-      img: "assets/winner.png"
-    },
-    {
-      id: "2",
-      icon: "https://img.icons8.com/color/48/000000/policeman-male--v1.png",
-      title: "Harayan Police Association",
-      desc: "We're officilly associated with Harayana police",
-      img: "assets/police.png"
-    },
-    {
-      id: "3",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "Certified",
-      desc: "We're certified by Chamber of Industry & Trade",
-      img: "assets/certificate.jpeg"
-    },
-    {
-      id: "4",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "Rejuvenating with Indian culture",
-      desc: "ANSH - A network of Sensitive Humans",
-      img: "assets/ansh.jpeg"
-    },
-    {
-      id: "5",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "Contibutions to WICCI",
-      desc: "We're certified by WICCI",
-      img: "assets/wicci.jpeg"
-    },
-    {
-      id: "5",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "IIFA Awardee",
-      desc: "Celebrity Brand award at IIFA",
-      img: "assets/iifa.jpeg"
-    },
-    {
-      id: "6",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "Chamber of trade & industry awardee",
-      desc: "Chamber of trade & industry awardee",
-      img: "assets/awardChamber.jpeg"
-    },
-    {
-      id: "7",
-      icon: "https://img.icons8.com/bubbles/50/000000/certificate.png",
-      title: "Honoured with industry award",
-      desc: "Honoured with industry award",
-      img: "assets/chamberGroup.jpeg"
-    }
-  ];
+const data = [
+  { id: "1", icon: "https://img.icons8.com/color/48/000000/trophy.png", title: "Miss Diva Dwarka", desc: "Won the competition held for Miss Diva" },
+  { id: "2", icon: "https://img.icons8.com/color/48/000000/policeman-male--v1.png", title: "Haryana Police Association", desc: "Officially associated with Haryana police" },
+  { id: "3", icon: "https://img.icons8.com/bubbles/50/000000/certificate.png", title: "Chamber Certified", desc: "Chamber of Industry & Trade" },
+  { id: "4", icon: "https://img.icons8.com/bubbles/50/000000/certificate.png", title: "ANSH", desc: "Rejuvenating with Indian culture" },
+  { id: "5", icon: "https://img.icons8.com/bubbles/50/000000/certificate.png", title: "WICCI", desc: "Certified by WICCI" },
+  { id: "6", icon: "https://img.icons8.com/bubbles/50/000000/certificate.png", title: "IIFA Awardee", desc: "Celebrity Brand award" },
+];
 
-  const handleClick = (way) => {
-    way === "left"
-      ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 2)
-      : setCurrentSlide(currentSlide < data.length - 1 ? currentSlide + 1 : 0);
-  };
+export default function Works() {
+  const [index, setIndex] = useState(0);
+  const visibleCount = 3;
+  const maxIndex = Math.max(0, data.length - visibleCount);
+
+  const goPrev = () => setIndex((i) => (i <= 0 ? maxIndex : i - 1));
+  const goNext = () => setIndex((i) => (i >= maxIndex ? 0 : i + 1));
+
+  const visible = data.slice(index, index + visibleCount);
+  if (visible.length < visibleCount && index > 0) {
+    visible.push(...data.slice(0, visibleCount - visible.length));
+  }
 
   return (
     <div className="works" id="works">
       <h1>Achievements</h1>
-      <div
-        className="slider"
-        style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
-      >
-        {data.map((d) => (
-          <div className="container">
-            <div className="item">
-              <div className="left">
-                <div className="leftContainer">
-                  <div className="imgContainer">
-                    <img src={d.icon} alt="" />
-                  </div>
-                  <h2 className="data-title">{d.title}</h2>
-                  <p className="data-desc">{d.desc}</p>
-                </div>
+      <div className="works-carousel">
+        <button type="button" className="works-arrow left" aria-label="Previous" onClick={goPrev}>
+          <img src="/assets/arrow.png" alt="" onError={(e) => { e.target.onerror = null; e.target.src = "https://img.icons8.com/ios-filled/50/000000/chevron-left.png"; }} />
+        </button>
+        <div className="works-cards">
+          {(visible.length ? visible : data.slice(0, visibleCount)).map((d) => (
+            <div key={d.id} className="works-card">
+              <div className="works-card-icon">
+                <img src={d.icon} alt="" />
               </div>
-              <div className="right">
-                <img className="main-image" src={d.img} alt="" />
-              </div>
+              <h3 className="works-card-title">{d.title}</h3>
+              <p className="works-card-desc">{d.desc}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <button type="button" className="works-arrow right" aria-label="Next" onClick={goNext}>
+          <img src="/assets/arrow.png" alt="" onError={(e) => { e.target.onerror = null; e.target.src = "https://img.icons8.com/ios-filled/50/000000/chevron-right.png"; }} />
+        </button>
       </div>
-      <img
-        src="assets/arrow.png"
-        className="arrow left"
-        alt=""
-        onClick={() => handleClick("left")}
-      />
-      <img
-        src="assets/arrow.png"
-        className="arrow right"
-        alt=""
-        onClick={() => handleClick()}
-      />
     </div>
   );
 }

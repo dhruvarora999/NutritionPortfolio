@@ -7,7 +7,7 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
       <div className="wrapper">
         <div className="left">
           <a href="#intro" className="logo">
-            <img className="company-logo" src="assets/companylogo.png" alt="" />
+            <img className="company-logo" src="/assets/PHOTO-2026-02-20-17-46-22.jpg" alt="Healthy Fit Sapna – Dietitian & Nutritionist" onError={(e) => { e.target.onerror = null; e.target.src = "https://img.icons8.com/color/96/vegetarian-food.png"; }} />
           </a>
           <div className="itemContainer">
             <Person className="icon" />

@@ -1,9 +1,25 @@
-$mainColor: #15023a;
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Syne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Syne:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-primary: #2d5a27;
+  --color-primary-dark: #1e3d1a;
+  --color-bg: #f8faf8;
+  --color-bg-section: #f8faf8;
+  --color-accent: #4a7c43;
+  --color-text: #1a1a1a;
+  --font-heading: 'Pacifico', cursive;
+  --font-body: 'Syne', sans-serif;
+  --radius: 16px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --section-padding: 40px 24px;
+  --content-max-width: 1100px;
+}
+
+$mainColor: var(--color-primary-dark);
 $width: 768px;
 
 @mixin mobile {
-    @media (max-width: #{$width}){
-        @content
-    }
+  @media (max-width: #{$width}) {
+    @content
+  }
 }
